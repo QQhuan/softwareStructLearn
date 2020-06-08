@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students xmlns="http://www.example.org/e-students" xsi:schemaLocation="http://www.example.org/e-students e-students.xsd"  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<student>
+		<sno>001</sno>
+		<name>张三</name></student>
+	<student>
+		<sno>002</sno>
+		<name>李四</name></student>
+</students>
