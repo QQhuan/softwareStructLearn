@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qiuhuan.sportplay.Dao.GoodTypeDao">
+    <select id="getAllGoodType" resultType="com.qiuhuan.sportplay.bean.GoodType">
+        SELECT * FROM goodstype
+        LIMIT #{pageStart},#{pageSize}
+    </select>
+
+    <select id="getGoodTypeCount" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM `goodstype`
+    </select>
+
+    <insert id="addNewGoodType">
+        INSERT INTO goodstype
+        (typeName)
+        VALUE
+        (#{typeName})
+    </insert>
+
+    <delete id="deleteGood">
+        DELETE FROM goodstype
+        WHERE id = #{id}
+    </delete>
+
+    <update id="updateGoodType">
+        UPDATE goodstype
+        SET typeName = #{typeName},
+        WHERE id = #{id}
+    </update>
+</mapper>
