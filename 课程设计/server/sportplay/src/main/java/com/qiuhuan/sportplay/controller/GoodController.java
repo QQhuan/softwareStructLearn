@@ -15,6 +15,7 @@ public class GoodController {
     @Autowired
     GoodDao goodDao;
 
+//    获取商品列表
     @GetMapping("/good")
     public String getGoodList(QueryInfo queryInfo){
         int numbers = goodDao.getGoodCount();// 获取数据总数
@@ -28,6 +29,7 @@ public class GoodController {
         return data_json;
     }
 
+    //增加商品
     @PostMapping("/good")
     public String addGood(@RequestBody Good good){
         System.out.println(good);
@@ -37,6 +39,7 @@ public class GoodController {
         return str;
     }
 
+    //删除商品
     @DeleteMapping(value = "/good/{id}")
     public String deleteGood(@PathVariable("id") int id){
         System.out.println(id);
@@ -45,6 +48,7 @@ public class GoodController {
         return str;
     }
 
+    //修改商品信息
     @PutMapping("/good")
     public String updateGood(@RequestBody Good good){
         System.out.println(good);

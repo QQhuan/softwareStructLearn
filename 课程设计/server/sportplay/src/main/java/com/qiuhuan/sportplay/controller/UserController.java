@@ -15,6 +15,7 @@ public class UserController {
     @Autowired
     UserDao userDao;
 
+    //获取用户列表
     @CrossOrigin
     @RequestMapping(value = "/allUser", method = RequestMethod.GET)  //注解为get方法
     public String getUserList(QueryInfo queryInfo){
@@ -30,6 +31,7 @@ public class UserController {
         return users_json;
     }
 
+    //修改用户
     @PutMapping("/userState")
     public String updateUserState(@RequestParam("id") Integer  id,
                                   @RequestParam("state") Boolean state){
@@ -41,6 +43,7 @@ public class UserController {
         return str;
     }
 
+    //添加用户
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)   //post方法
     public String addUser(@RequestBody User user){
         System.out.println(user);
@@ -51,6 +54,7 @@ public class UserController {
         return str;
     }
 
+    //获取单个用户
     @RequestMapping("/getUpdate")
     public String getUpdateUser(int id){
         System.out.println("编号:"+id);
@@ -59,6 +63,7 @@ public class UserController {
         return users_json;
     }
 
+    //编辑用户
     @RequestMapping("/editUser")
     public String editUser(@RequestBody User user){
         System.out.println(user);
@@ -67,6 +72,7 @@ public class UserController {
         return str;
     }
 
+    //删除用户
     @RequestMapping("/deleteUser")
     public String deleteUser(int id){
         System.out.println(id);

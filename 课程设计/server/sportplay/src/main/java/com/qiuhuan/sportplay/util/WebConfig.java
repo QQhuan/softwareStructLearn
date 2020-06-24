@@ -9,10 +9,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOrigins("http://localhost:8080", "null")
-                .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE")
-                .maxAge(3600)
-                .allowCredentials(true);
+        registry.addMapping("/**") //端口路径
+                .allowedOrigins("http://localhost:8080", "null") //允许请求源
+                .allowedMethods("POST", "GET", "PUT", "OPTIONS", "DELETE") //允许的方法
+                .maxAge(3600)               //请求最大时长
+                .allowCredentials(true); //写在凭证信息，例如cookie等
     }
 }

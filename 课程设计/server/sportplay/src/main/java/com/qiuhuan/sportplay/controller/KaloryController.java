@@ -17,6 +17,7 @@ public class KaloryController {
     @Autowired
     KaloryDao kaloryDao;
 
+    //获得卡路里列表
     @GetMapping("kalory")
     public String getAllKalory(QueryInfo queryInfo){
         int numbers = kaloryDao.getKaloryCount(); // 获取数据总数

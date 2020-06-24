@@ -15,6 +15,7 @@ public class MenuController {
     @Autowired
     MenuDao menuDao;
 
+    //获取功能菜单
     @RequestMapping("/menus")
     public String getAllMenus(){
         System.out.println("访问菜单成功");
