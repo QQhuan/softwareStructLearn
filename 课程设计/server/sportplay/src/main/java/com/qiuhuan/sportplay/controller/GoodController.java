@@ -13,10 +13,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -91,6 +89,18 @@ public class GoodController {
         String str = i > 0 ? "success" : "error";
         return str;
     }
+
+    @GetMapping("/getFile")
+    public void getFile(@RequestParam("path") String path, HttpServletResponse response) throws IOException{
+        String filePath = path;
+        File file = new File(filePath);
+        FileInputStream inputStream = new FileInputStream(file);
+        OutputStream outputStream = response.getOutputStream();
+        IOUtils.copy(inputStream, outputStream);
+        outputStream.flush();
+    }
+
+
 //    @RequestMapping("upload2")
 //    public String upload2(HttpSession session, @RequestParam("upload") CommonsMultipartFile file) throws IOException {
 //
