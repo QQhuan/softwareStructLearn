@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import com.qiuhuan.sportplay.Dao.GoodDao;
 import com.qiuhuan.sportplay.bean.Good;
 import com.qiuhuan.sportplay.bean.QueryInfo;
+import com.qiuhuan.sportplay.bean.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
@@ -86,11 +87,12 @@ public class GoodController {
             e.printStackTrace();
         }
         //存储img路径到数据库
-
+        int i = goodDao.addImg(id, url_path);
 
         //返回图片访问地址
         System.out.println("访问URL："+URL+url_path);
-        return URL+url_path;
+        String str = i > 0?"success":"error";
+        return str;
     }
 
 //    @RequestMapping("upload2")

@@ -31,4 +31,10 @@
             goodtype = #{goodType}
         WHERE id = #{id}
     </update>
+
+    <update id="addImg">
+        UPDATE good
+        SET img = #{path}
+        WHERE id = #{id}
+    </update>
 </mapper>
