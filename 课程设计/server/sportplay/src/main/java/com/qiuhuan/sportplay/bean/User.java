@@ -8,7 +8,7 @@ public class User {
     private String role;
     private boolean state;
 
-    public User(String u11, String u1, String s) {
+    public User() {
     }
 
     public User(String username, String password, String email, String role, boolean state) {

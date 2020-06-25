@@ -68,9 +68,10 @@ public class GoodController {
     private  final String URL = "http://localhost:9000/";
 
     @PostMapping("/upload/{id}")
-    public String singleImage(@RequestParam("file") MultipartFile file, HttpServletRequest request, @PathVariable("id") int id) throws FileNotFoundException {  //参数名需与前端文件标签名一样
+    public String singleImage(@RequestParam("file") MultipartFile file, @PathVariable("id") int id) throws FileNotFoundException {  //参数名需与前端文件标签名一样
         //获取项目classes/static的地址
         String path = ClassUtils.getDefaultClassLoader().getResource("static").getPath();
+        System.out.println(path);
         String fileName = file.getOriginalFilename();  //获取文件名
         //图片访问URI(即除了协议、地址和端口号的URL)
         String url_path = "image"+ File.separator+fileName;
@@ -87,12 +88,12 @@ public class GoodController {
             e.printStackTrace();
         }
         //存储img路径到数据库
-        int i = goodDao.addImg(id, url_path);
+        //int i = goodDao.addImg(id, url_path);
 
         //返回图片访问地址
         System.out.println("访问URL："+URL+url_path);
-        String str = i > 0?"success":"error";
-        return str;
+        //String str = i > 0?"success":"error";
+        return "str;";
     }
 
 //    @RequestMapping("upload2")
