@@ -5,7 +5,14 @@ import com.qiuhuan.sportplay.Dao.GoodDao;
 import com.qiuhuan.sportplay.bean.Good;
 import com.qiuhuan.sportplay.bean.QueryInfo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.ClassUtils;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -56,6 +63,36 @@ public class GoodController {
         String str = i > 0?"success":"error";
         return str;
     }
+
+    private  final String URL = "http://localhost:9000/";
+
+    @PostMapping("/upload/{id}")
+    public String singleImage(@RequestParam("file") MultipartFile file, HttpServletRequest request, @PathVariable("id") int id) throws FileNotFoundException {  //参数名需与前端文件标签名一样
+        //获取项目classes/static的地址
+        String path = ClassUtils.getDefaultClassLoader().getResource("static").getPath();
+        String fileName = file.getOriginalFilename();  //获取文件名
+        //图片访问URI(即除了协议、地址和端口号的URL)
+        String url_path = "image"+ File.separator+fileName;
+        System.out.println("图片访问uri："+url_path);
+        String savePath = path+File.separator+url_path;  //图片保存路径
+        System.out.println("图片保存地址："+savePath);
+        File saveFile = new File(savePath);
+        if (!saveFile.exists()){
+            saveFile.mkdirs();
+        }
+        try {
+            file.transferTo(saveFile);  //将临时存储的文件移动到真实存储路径下
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //存储img路径到数据库
+
+
+        //返回图片访问地址
+        System.out.println("访问URL："+URL+url_path);
+        return URL+url_path;
+    }
+
 //    @RequestMapping("upload2")
 //    public String upload2(HttpSession session, @RequestParam("upload") CommonsMultipartFile file) throws IOException {
 //

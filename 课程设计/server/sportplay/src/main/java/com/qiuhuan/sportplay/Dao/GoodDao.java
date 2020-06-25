@@ -18,4 +18,5 @@ public interface GoodDao {
     public int deleteGood(int id);
     //更新商品
     public int updateGood(Good good);
+    //为商品添加
 }
