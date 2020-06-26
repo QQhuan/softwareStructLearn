@@ -83,11 +83,11 @@ public class GoodController {
     }
     @GetMapping("/getFile")
     public void getFile(@RequestParam("path") String path, HttpServletResponse response) throws IOException{
-        String filePath = path;
+        String filePath = path; //文件的路径
         File file = new File(filePath);
         FileInputStream inputStream = new FileInputStream(file);
         OutputStream outputStream = response.getOutputStream();
         IOUtils.copy(inputStream, outputStream);
-        outputStream.flush();
+        outputStream.flush();  //流输出
     }
 }
