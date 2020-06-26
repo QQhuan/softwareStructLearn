@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>管理书籍</title>
+</head>
+<body>
+<table>
+    <tr>
+        <td>书籍编号</td>
+        <td>名称</td>
+        <td>作者</td>
+        <td>价格</td>
+        <td>更改价格</td>
+        <td colspan="2">操作</td>
+    </tr>
+        <tr>
+            <td>11</td>
+            <td><input type="text" name="newPrice" onchange="update(this)"></td>
+            <td><a href="#" class="11">修改</a> </td>
+        </tr>
+    
+</table>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script>
+    function update(e){
+        let newPrice = $(e).val();
+        let className = $(e).parent().parent().children("td")[0];
+        className = $(className).text();
+        $('.'+className).attr("href", "你的请求地址"+className+"&newPrice="+newPrice);
+    }
+</script>
+</body>
+</html>
