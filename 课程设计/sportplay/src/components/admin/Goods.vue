@@ -213,7 +213,7 @@ export default {
 		async getGoodTypeList() {
       // 调用get请求
       const { data: res } = await this.$http.get("goodType", {
-        params: {
+        params: { 
 					query: "",
 					pageNum: 1,
 					pageSize: 1000
