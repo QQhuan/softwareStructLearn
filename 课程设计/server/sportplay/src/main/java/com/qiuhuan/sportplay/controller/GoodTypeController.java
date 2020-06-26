@@ -2,7 +2,6 @@ package com.qiuhuan.sportplay.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.qiuhuan.sportplay.Dao.GoodTypeDao;
-import com.qiuhuan.sportplay.bean.Good;
 import com.qiuhuan.sportplay.bean.GoodType;
 import com.qiuhuan.sportplay.bean.QueryInfo;
 import org.springframework.beans.factory.annotation.Autowired;
