@@ -15,7 +15,7 @@
     "less-loader": "^6.1.0",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",
-    "xlsx": "^0.16.2"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.4.0",
